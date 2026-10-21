@@ -1,0 +1,9 @@
+# binarios de compilacion
+*.o
+eda-ob/main
+
+# tarball original de la catedra
+*.tar.gz
+
+# metadatos de Windows
+*:Zone.Identifier
