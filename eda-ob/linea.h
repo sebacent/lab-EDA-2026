@@ -2,7 +2,7 @@
 #define LINEA_H
 
 // Estructuras de Datos y Algoritmos - Obligatorio 2026
-// Tecnologo en Informatica 
+// Tecnologo en Informatica FIng - DGETP - UTEC
 //
 // linea.h
 // Modulo de especificacion de linea.

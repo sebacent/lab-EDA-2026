@@ -12,6 +12,9 @@
 using namespace std;
 
 struct nodo_editor{
+	texto t;
+	// Diccionario d;
+	// UltPal up
 	/* acá deben figurar los campos/estructuras que usted considere necesarios
 	para implementar el editor. Ej: texto, diccionario, etc. Recordar que cada módulo
 	debe implementarse independientemente e incluirse */
@@ -21,6 +24,9 @@ struct nodo_editor{
 editor CrearEditor(){
 // Crea la estructura editor.
 	editor e = new(nodo_editor);
+	e->t = CrearTexto();
+	//e->d = CrearDiccionario()
+	//e->up = CrearUltimasPalabras()
 	/* crear el resto de las estructuras que se incluyan en el editor
 	usando las funciones correspondientes de cada modulo */
 	return e;
@@ -30,7 +36,8 @@ TipoRetorno InsertarLinea(editor & e){
 // Inserta una nueva línea vacía al final del texto.
 // Este requerimiento debe ser resuelto en O(1) peor caso.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	InsertarLinea_texto(e->t);
+	return OK;
 }
 
 TipoRetorno InsertarLineaEnPosicion(editor & e, Posicion posicionLinea){
@@ -60,7 +67,8 @@ TipoRetorno BorrarOcurrenciasPalabraEnTexto(editor & e, Cadena palabraABorrar){
 TipoRetorno ImprimirTexto(editor & e){
 // Imprime el texto por pantalla.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	ImprimirTexto_Texto(e->t);
+	return OK;
 }
 
 TipoRetorno ComprimirTexto(editor & e){

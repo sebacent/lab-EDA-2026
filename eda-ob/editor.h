@@ -8,6 +8,7 @@
 // Modulo de especificacion de editor.
 
 #include "definiciones.h"
+#include "texto.h"
 
 typedef struct nodo_editor * editor;
 

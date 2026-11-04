@@ -7,3 +7,8 @@ eda-ob/main
 
 # metadatos de Windows
 *:Zone.Identifier
+
+# no escenciales
+eda-ob/prueba_linea
+.vscode/
+
