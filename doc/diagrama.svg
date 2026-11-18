@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1190" viewBox="0 0 1100 1190">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#333" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<style>
+text{font-family:'Segoe UI',Helvetica,Arial,sans-serif;fill:#222;font-size:14px}
+.h{font-size:16px;font-weight:600}
+.big{font-size:20px;font-weight:600}
+.s{font-size:12.5px;fill:#555}
+.m{font-family:Consolas,'Courier New',monospace;font-size:13.5px}
+.arr{stroke:#333;stroke-width:1.6;fill:none}
+.slot{fill:#fff;stroke:#7a6fd0;stroke-width:1.2}
+.empty{fill:#fff;stroke:#7a6fd0;stroke-width:1.2;stroke-dasharray:4 3}
+.rule{fill:#f6f6f6;stroke:#999;stroke-width:1}
+.exp{fill:#eaf3fc;stroke:#4a8fd6;stroke-width:1}
+</style>
+</defs>
+<rect width="1100" height="1190" fill="#fff"/>
+
+<text class="big" x="30" y="30">1. Estructura actual y ampliaciones pendientes</text>
+
+<rect x="30" y="200" width="170" height="150" rx="14" fill="#ececec" stroke="#555" stroke-width="1.4"/>
+<text class="h" x="115" y="226" text-anchor="middle">editor</text>
+<text class="m" x="48" y="256">t : texto</text>
+<text class="m" x="48" y="279">d (pendiente)</text>
+<text class="m" x="48" y="302">ultimas[3] (opcional)</text>
+<text class="m" x="48" y="325">posUltima (opcional)</text>
+
+<path class="arr" d="M200 230 L235 230 L235 105 L266 105" marker-end="url(#a)"/>
+<path class="arr" d="M200 290 L266 290" marker-end="url(#a)"/>
+<path class="arr" d="M115 350 L115 430 L790 430 L790 404" marker-end="url(#a)"/>
+
+<rect x="270" y="50" width="180" height="135" rx="14" fill="#efedfd" stroke="#6a5fc8" stroke-width="1.4"/>
+<text class="h" x="360" y="76" text-anchor="middle">texto</text>
+<text class="s" x="360" y="96" text-anchor="middle">lista enlazada de líneas</text>
+<text class="m" x="288" y="122">p → primera línea</text>
+<text class="m" x="288" y="144">u → última línea</text>
+<text class="m" x="288" y="166">cant → cantidad</text>
+
+<path class="arr" d="M450 105 L516 105" marker-end="url(#a)"/>
+
+<rect x="520" y="40" width="290" height="150" rx="14" fill="#efedfd" stroke="#6a5fc8" stroke-width="1.4"/>
+<text class="h" x="665" y="64" text-anchor="middle">linea (nodo de la lista)</text>
+<rect class="slot" x="540" y="78" width="76" height="34" rx="5"/>
+<rect class="slot" x="627" y="78" width="76" height="34" rx="5"/>
+<rect class="empty" x="714" y="78" width="76" height="34" rx="5"/>
+<text x="578" y="100" text-anchor="middle">"Hola"</text>
+<text x="665" y="100" text-anchor="middle">"que"</text>
+<text class="s" x="752" y="100" text-anchor="middle">vacía</text>
+<text class="s" x="578" y="128" text-anchor="middle">pos 1 [0]</text>
+<text class="s" x="665" y="128" text-anchor="middle">pos 2 [1]</text>
+<text class="s" x="752" y="128" text-anchor="middle">pos 3 [2]</text>
+<text class="m" x="540" y="156">cant = 2</text>
+<text class="m" x="540" y="178">sig → siguiente línea</text>
+
+<path class="arr" d="M790 95 L866 95" marker-end="url(#a)"/>
+
+<rect x="870" y="45" width="200" height="110" rx="14" fill="#f2f2f2" stroke="#777" stroke-width="1.4"/>
+<text class="h" x="970" y="71" text-anchor="middle">palabra</text>
+<text class="m" x="970" y="95" text-anchor="middle">= Cadena (char*)</text>
+<text class="s" x="970" y="118" text-anchor="middle">no hace falta un struct</text>
+<text class="s" x="970" y="138" text-anchor="middle">ej: "Hola"</text>
+
+<rect x="270" y="220" width="320" height="180" rx="14" fill="#e3f5ee" stroke="#1d8e6a" stroke-width="1.4"/>
+<text class="h" x="430" y="246" text-anchor="middle">diccionario (ABB, pendiente)</text>
+<text class="s" x="430" y="266" text-anchor="middle">menores a la izquierda, mayores a la derecha</text>
+<line x1="415" y1="310" x2="365" y2="342" stroke="#1d8e6a" stroke-width="1.2"/>
+<line x1="445" y1="310" x2="495" y2="342" stroke="#1d8e6a" stroke-width="1.2"/>
+<line x1="335" y1="370" x2="320" y2="378" stroke="#1d8e6a" stroke-width="1.2"/>
+<rect x="395" y="282" width="70" height="28" rx="5" fill="#fff" stroke="#1d8e6a"/>
+<text x="430" y="301" text-anchor="middle">hola</text>
+<rect x="315" y="342" width="70" height="28" rx="5" fill="#fff" stroke="#1d8e6a"/>
+<text x="350" y="361" text-anchor="middle">chau</text>
+<rect x="475" y="342" width="70" height="28" rx="5" fill="#fff" stroke="#1d8e6a"/>
+<text x="510" y="361" text-anchor="middle">sol</text>
+<text class="s" x="300" y="392">...</text>
+
+<rect x="640" y="220" width="300" height="180" rx="14" fill="#fcede7" stroke="#c4552c" stroke-width="1.4"/>
+<text class="h" x="790" y="246" text-anchor="middle">ultimas[3] (opcional pendiente)</text>
+<text class="s" x="790" y="266" text-anchor="middle">las últimas 3 palabras ingresadas</text>
+<rect x="665" y="282" width="75" height="34" rx="5" fill="#fff" stroke="#c4552c"/>
+<rect x="752" y="282" width="75" height="34" rx="5" fill="#fff" stroke="#c4552c"/>
+<rect x="839" y="282" width="75" height="34" rx="5" fill="#fff" stroke="#c4552c"/>
+<text x="702" y="304" text-anchor="middle">"ok"</text>
+<text x="789" y="304" text-anchor="middle">"que"</text>
+<text x="876" y="304" text-anchor="middle">"tal"</text>
+<path class="arr" d="M789 344 L789 320" marker-end="url(#a)"/>
+<text class="s" x="789" y="360" text-anchor="middle">posUltima (la próxima a pisar)</text>
+<text class="s" x="789" y="380" text-anchor="middle">se ingresó hola, que, tal, ok → "ok" pisó a "hola"</text>
+
+<text class="big" x="30" y="482">2. Reglas del PDF → qué significan en el código</text>
+
+<g>
+<rect class="rule" x="30" y="505" width="460" height="64" rx="8"/>
+<text x="46" y="530">El texto está compuesto por 0 o más líneas.</text>
+<text x="46" y="550">No hay límite en la cantidad de líneas.</text>
+<path class="arr" d="M495 537 L571 537" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="505" width="495" height="64" rx="8"/>
+<text x="591" y="525">Lista enlazada de líneas (memoria dinámica, sin tope).</text>
+<text x="591" y="543">texto guarda p (primera) y u (última); gracias a u,</text>
+<text x="591" y="561">InsertarLinea es O(1).</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="585" width="460" height="64" rx="8"/>
+<text x="46" y="610">La línea tiene 0 o más palabras, como máximo</text>
+<text x="46" y="630">MAX_CANT_PALABRAS_X_LINEA = 3.</text>
+<path class="arr" d="M495 617 L571 617" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="585" width="495" height="64" rx="8"/>
+<text x="591" y="610">Como el máximo es una constante chica, va un array fijo:</text>
+<text x="591" y="630">Cadena palabras[3] + int cant (cuántas hay ocupadas).</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="665" width="460" height="64" rx="8"/>
+<text x="46" y="702">Las palabras no deben tener espacios en blanco.</text>
+<path class="arr" d="M495 697 L571 697" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="665" width="495" height="64" rx="8"/>
+<text x="591" y="690">Es una garantía, no hay que validarlo. Cada palabra es</text>
+<text x="591" y="710">una sola Cadena; al imprimir se separan con un espacio.</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="745" width="460" height="64" rx="8"/>
+<text x="46" y="770">Las palabras ocupan posiciones consecutivas desde</text>
+<text x="46" y="790">la posición 1 (no hay huecos entre palabras).</text>
+<path class="arr" d="M495 777 L571 777" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="745" width="495" height="64" rx="8"/>
+<text x="591" y="765">Insertar en k: correr a la derecha (si está llena, la última</text>
+<text x="591" y="783">baja a la línea siguiente). Borrar en k: correr a la izquierda.</text>
+<text x="591" y="801">Insertar: 1 ≤ k ≤ cant+1. Borrar: 1 ≤ k ≤ cant.</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="825" width="460" height="64" rx="8"/>
+<text x="46" y="850">Ignorar mayúsculas y minúsculas, pero mostrar el</text>
+<text x="46" y="870">texto tal como se ingresó.</text>
+<path class="arr" d="M495 857 L571 857" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="825" width="495" height="64" rx="8"/>
+<text x="591" y="845">Guardar la palabra tal cual ("Hola"). Al comparar, usar una</text>
+<text x="591" y="863">función que no distinga: "hola" == "HOLA" == "Hola"</text>
+<text x="591" y="881">(strcasecmp, o una propia con tolower).</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="905" width="460" height="64" rx="8"/>
+<text x="46" y="930">Al iniciar, el texto está vacío (0 líneas) y el</text>
+<text x="46" y="950">diccionario no tiene palabras.</text>
+<path class="arr" d="M495 937 L571 937" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="905" width="495" height="64" rx="8"/>
+<text x="591" y="930">Actual: CrearTexto pone p = u = NULL y cant = 0.</text>
+<text x="591" y="950">Pendiente: diccionario y ultimas palabras.</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="985" width="460" height="64" rx="8"/>
+<text x="46" y="1010">Diccionario: insertar en O(log n) promedio e</text>
+<text x="46" y="1030">imprimir alfabéticamente en O(n). (editor.h)</text>
+<path class="arr" d="M495 1017 L571 1017" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="985" width="495" height="64" rx="8"/>
+<text x="591" y="1010">ABB (árbol binario de búsqueda) de Cadena.</text>
+<text x="591" y="1030">Imprimir alfabético = recorrido en orden (izq, nodo, der).</text>
+</g>
+
+<g>
+<rect class="rule" x="30" y="1065" width="460" height="64" rx="8"/>
+<text x="46" y="1090">Imprimir las últimas MAX_CANT_ULTIMAS_PALABRAS = 3</text>
+<text x="46" y="1110">palabras ingresadas al texto. (editor.h)</text>
+<path class="arr" d="M495 1097 L571 1097" marker-end="url(#a)"/>
+<rect class="exp" x="575" y="1065" width="495" height="64" rx="8"/>
+<text x="591" y="1090">Array circular de 3 + índice: cada palabra nueva pisa</text>
+<text x="591" y="1110">la más vieja y el índice avanza: (posUltima + 1) % 3.</text>
+</g>
+
+<text class="s" x="30" y="1165">Gris = lo que dice el PDF / editor.h.  Azul = cómo se resuelve.</text>
+</svg>
