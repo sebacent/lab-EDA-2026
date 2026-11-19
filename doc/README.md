@@ -28,7 +28,7 @@ Las casillas marcadas indican operaciones con implementacion y pruebas realizada
 - [x] **6** `ImprimirTexto` - TIPO 1
 - [ ] **7** `ComprimirTexto` - OPCIONAL
 - [x] **8** `InsertarPalabra` - TIPO 1
-- [ ] **9** `BorrarPalabra` - TIPO 1 *(implementada, falta corregir el limite de posicionPalabra: debe ser cantidad de palabras, sin + 1)*
+- [x] **9** `BorrarPalabra` - TIPO 1
 - [x] **10** `BorrarOcurrenciasPalabraEnLinea` - TIPO 1
 - [ ] **11** `ImprimirLinea` - TIPO 1
 - [ ] **12** `IngresarPalabraDiccionario` - TIPO 1

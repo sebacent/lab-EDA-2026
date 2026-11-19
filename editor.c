@@ -43,7 +43,7 @@ TipoRetorno InsertarLinea(editor & e){
 TipoRetorno InsertarLineaEnPosicion(editor & e, Posicion posicionLinea){
 // Inserta una nueva línea vacía en la posición indicada.
 // Ver más detalles en la letra del obligatorio.
-	if (posicionLinea < 1 || (int) posicionLinea > CantidadLineas(e->t) + 1) {
+	if (posicionLinea < 1 || posicionLinea > CantidadLineas(e->t) + 1) {
 		return ERROR;
 	}
 
@@ -59,7 +59,7 @@ TipoRetorno InsertarLineaEnPosicion(editor & e, Posicion posicionLinea){
 TipoRetorno BorrarLinea(editor & e, Posicion posicionLinea){
 // Borra la línea en la posición indicada.
 // Ver más detalles en la letra del obligatorio.
-	if (posicionLinea < 1 || (int) posicionLinea > CantidadLineas(e->t)) {
+	if (posicionLinea < 1 || posicionLinea > CantidadLineas(e->t)) {
 		return ERROR;
 	}
 
@@ -116,7 +116,7 @@ TipoRetorno BorrarPalabra(editor & e, Posicion posicionLinea, Posicion posicionP
 		return ERROR;
 	}
 
-	if (posicionPalabra < 1 || posicionPalabra > CantidadPalabrasLinea(e->t, posicionLinea) + 1) {
+	if (posicionPalabra < 1 || posicionPalabra > CantidadPalabrasLinea(e->t, posicionLinea)) {
 		return ERROR;
 	}
 
