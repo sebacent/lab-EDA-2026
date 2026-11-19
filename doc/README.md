@@ -35,7 +35,7 @@ Las casillas marcadas indican operaciones con implementacion y pruebas realizada
 - [ ] **13** `BorrarPalabraDiccionario` - TIPO 2
 - [ ] **14** `ImprimirDiccionario` - TIPO 1
 - [ ] **15** `ImprimirTextoIncorrecto` - TIPO 2
-- [ ] **16** `ImprimirUltimasPalabras` - OPCIONAL
+- [x] **16** `ImprimirUltimasPalabras` - OPCIONAL
 
 ### Sin número en el PDF
 - [ ] `DestruirEditor` (está en `../editor.h`, liberar toda la memoria) *(a medias: libera el texto, falta el diccionario)*

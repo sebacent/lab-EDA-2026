@@ -15,7 +15,9 @@ using namespace std;
 struct nodo_editor{
 	texto t;
 	diccionario d;
-	// UltPal up
+	Cadena ultimas[MAX_CANT_ULTIMAS_PALABRAS]; // arreglo circular con copias de las ultimas palabras
+	int sigUltima;  // donde se escribe la proxima (la mas vieja si esta lleno)
+	int cantUltimas; // cuantas hay guardadas (0 a MAX_CANT_ULTIMAS_PALABRAS)
 	/* acá deben figurar los campos/estructuras que usted considere necesarios
 	para implementar el editor. Ej: texto, diccionario, etc. Recordar que cada módulo
 	debe implementarse independientemente e incluirse */
@@ -27,7 +29,10 @@ editor CrearEditor(){
 	editor e = new(nodo_editor);
 	e->t = CrearTexto();
 	e->d = CrearDiccionario();
-	//e->up = CrearUltimasPalabras()
+	for (int i = 0; i < MAX_CANT_ULTIMAS_PALABRAS; i++)
+		e->ultimas[i] = NULL;
+	e->sigUltima = 0;
+	e->cantUltimas = 0;
 	/* crear el resto de las estructuras que se incluyan en el editor
 	usando las funciones correspondientes de cada modulo */
 	return e;
@@ -107,6 +112,14 @@ TipoRetorno InsertarPalabra(editor & e, Posicion posicionLinea, Posicion posicio
 	}
 
 	InsertarPalabra_texto(e->t, posicionLinea, posicionPalabra, palabraAIngresar);
+
+	// Ultimas palabras: se pisa la mas vieja con una copia de la nueva. O(1) extra.
+	delete[] e->ultimas[e->sigUltima]; // delete[] de NULL no hace nada
+	e->ultimas[e->sigUltima] = new char[strlen(palabraAIngresar) + 1];
+	strcpy(e->ultimas[e->sigUltima], palabraAIngresar);
+	e->sigUltima = (e->sigUltima + 1) % MAX_CANT_ULTIMAS_PALABRAS;
+	if (e->cantUltimas < MAX_CANT_ULTIMAS_PALABRAS)
+		e->cantUltimas++;
 	return OK;
 }
 
@@ -194,13 +207,24 @@ TipoRetorno ImprimirTextoIncorrecto(editor & e){
 TipoRetorno ImprimirUltimasPalabras(editor & e){
 // Imprime las últimas MAX_CANT_ULTIMAS_PALABRAS palabras ingresadas al texto.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	if (e->cantUltimas == 0) {
+		cout << "\tNo se ingresaron palabras\n";
+		return OK;
+	}
+	// de la mas nueva a la mas vieja: hacia atras desde sigUltima
+	for (int k = 1; k <= e->cantUltimas; k++) {
+		int i = (e->sigUltima - k + MAX_CANT_ULTIMAS_PALABRAS) % MAX_CANT_ULTIMAS_PALABRAS;
+		cout << "\t" << e->ultimas[i] << endl;
+	}
+	return OK;
 }
 
 TipoRetorno DestruirEditor(editor & e){
 // Destruye la estructura editor y libera la memoria asociada.
 	DestruirTexto(e->t);
 	DestruirDiccionario(e->d);
+	for (int i = 0; i < MAX_CANT_ULTIMAS_PALABRAS; i++)
+		delete[] e->ultimas[i];
 	delete e;
 	e = NULL;
 	return OK;
