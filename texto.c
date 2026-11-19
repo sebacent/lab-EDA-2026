@@ -160,6 +160,29 @@ void BorrarOcurrenciasPalabraEnLinea_texto(texto t, Posicion posicionLinea, Cade
     BorrarOcurrencias_linea(l, palabra);
 }
 
+void ImprimirLinea_texto(texto t, Posicion posicionLinea) {
+    // Imprime la linea indicada con su numero
+    // Pre: la linea indicada existe
+    linea l = t->p;
+    for (Posicion i = 1; i < posicionLinea; i++)
+        l = SiguienteLinea(l);
+
+    ImprimirLinea_linea(l, posicionLinea);
+}
+
+void ImprimirTextoIncorrecto_texto(texto t, diccionario d) {
+    // Imprime las lineas con solo las palabras que no estan en d
+    if (t->p == NULL) {
+        cout << "\tTexto vacio\n";
+        return;
+    }
+    int pos = 1;
+    for (linea l = t->p; l != NULL; l = SiguienteLinea(l)) {
+        ImprimirLineaIncorrecta_linea(l, pos, d);
+        pos++;
+    }
+}
+
 void DestruirTexto(texto t) {
     // Libera todas las lineas y la estructura texto.
     BorrarTodo_texto(t);

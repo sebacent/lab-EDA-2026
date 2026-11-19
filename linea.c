@@ -119,6 +119,15 @@ void ImprimirLineas(linea p, int pos){
 	}
 }
 
+void ImprimirLineaIncorrecta_linea(linea l, int pos, diccionario d){
+// Imprime la linea l mostrando solo las palabras que no estan en d
+	cout << "\t" << pos << ":";
+	for (int i = 0; i < l->cant; i++)
+		if (!PerteneceDiccionario(d, l->palabras[i]))
+			cout << " " << l->palabras[i];
+	cout << endl;
+}
+
 void DestruirLinea(linea l){
 // Libera la linea l y todas sus palabras
 	for (int i = 0; i < l->cant; i++)

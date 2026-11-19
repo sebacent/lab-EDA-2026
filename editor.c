@@ -5,6 +5,7 @@
 // Modulo de implementacion de editor.
 
 #include "editor.h"
+#include "diccionario.h"
 // Incluir los modulos realizados.
 #include <string.h>
 #include <iostream>
@@ -13,7 +14,7 @@ using namespace std;
 
 struct nodo_editor{
 	texto t;
-	// Diccionario d;
+	diccionario d;
 	// UltPal up
 	/* acá deben figurar los campos/estructuras que usted considere necesarios
 	para implementar el editor. Ej: texto, diccionario, etc. Recordar que cada módulo
@@ -25,7 +26,7 @@ editor CrearEditor(){
 // Crea la estructura editor.
 	editor e = new(nodo_editor);
 	e->t = CrearTexto();
-	//e->d = CrearDiccionario()
+	e->d = CrearDiccionario();
 	//e->up = CrearUltimasPalabras()
 	/* crear el resto de las estructuras que se incluyan en el editor
 	usando las funciones correspondientes de cada modulo */
@@ -144,33 +145,50 @@ TipoRetorno BorrarOcurrenciasPalabraEnLinea(editor & e, Posicion posicionLinea, 
 TipoRetorno ImprimirLinea(editor & e, Posicion posicionLinea){
 // Imprime la línea por pantalla.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	if (posicionLinea < 1 || posicionLinea > (Posicion) CantidadLineas(e->t))
+		return ERROR;
+
+	ImprimirLinea_texto(e->t, posicionLinea);
+	return OK;
 }
 
 TipoRetorno IngresarPalabraDiccionario(editor & e, Cadena palabraAIngresar){
 // Agrega una palabra al diccionario.
 // Esta operación debe realizarse en a lo sumo O(log n) promedio.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	if (PerteneceDiccionario(e->d, palabraAIngresar))
+		return ERROR;
+
+	InsertarPalabra_diccionario(e->d, palabraAIngresar);
+	return OK;
 }
 
 TipoRetorno BorrarPalabraDiccionario(editor & e, Cadena palabraABorrar){
 // Borra una palabra del diccionario.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	if (!PerteneceDiccionario(e->d, palabraABorrar))
+		return ERROR;
+
+	BorrarPalabra_diccionario(e->d, palabraABorrar);
+	return OK;
 }
 
 TipoRetorno ImprimirDiccionario(editor & e){
 // Muestra las palabras del diccionario alfabéticamente.
 // Esta operación debe realizarse en O(n) peor caso.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	if (EsVacioDiccionario(e->d))
+		cout << "\tDiccionario vacio\n";
+	else
+		ImprimirPalabras_diccionario(e->d);
+	return OK;
 }
 
 TipoRetorno ImprimirTextoIncorrecto(editor & e){
 // Muestra las palabras del texto que no se encuentran en el diccionario.
 // Ver más detalles en la letra del obligatorio.
-	return NO_IMPLEMENTADA;
+	ImprimirTextoIncorrecto_texto(e->t, e->d);
+	return OK;
 }
 
 TipoRetorno ImprimirUltimasPalabras(editor & e){
@@ -182,6 +200,7 @@ TipoRetorno ImprimirUltimasPalabras(editor & e){
 TipoRetorno DestruirEditor(editor & e){
 // Destruye la estructura editor y libera la memoria asociada.
 	DestruirTexto(e->t);
+	DestruirDiccionario(e->d);
 	delete e;
 	e = NULL;
 	return OK;

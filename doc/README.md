@@ -30,7 +30,7 @@ Las casillas marcadas indican operaciones con implementacion y pruebas realizada
 - [x] **8** `InsertarPalabra` - TIPO 1
 - [x] **9** `BorrarPalabra` - TIPO 1
 - [x] **10** `BorrarOcurrenciasPalabraEnLinea` - TIPO 1
-- [ ] **11** `ImprimirLinea` - TIPO 1
+- [x] **11** `ImprimirLinea` - TIPO 1
 - [ ] **12** `IngresarPalabraDiccionario` - TIPO 1
 - [ ] **13** `BorrarPalabraDiccionario` - TIPO 2
 - [ ] **14** `ImprimirDiccionario` - TIPO 1

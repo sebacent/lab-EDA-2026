@@ -8,6 +8,7 @@
 // Modulo de especificacion de texto.
 
 #include "definiciones.h"
+#include "diccionario.h"
 #include <iostream>
 
 using namespace std;
@@ -62,6 +63,11 @@ void ImprimirLinea_linea(linea l, int pos);
 void ImprimirLineas(linea p, int pos);
 // Imprime las lineas a partir de p, pos es la
 // posicion de la linea, debe ponerse en 1 la primera vez
+
+void ImprimirLineaIncorrecta_linea(linea l, int pos, diccionario d);
+// Imprime la linea l con el numero pos adelante, mostrando solo las palabras
+// que no estan en d. Ej: "2: Hola"
+// Pre: l != NULL
 
 void DestruirLinea(linea l);
 // Libera la linea l y todas sus palabras (no toca las siguientes)

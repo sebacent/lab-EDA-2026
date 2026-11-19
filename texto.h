@@ -8,6 +8,7 @@
 // Modulo de especificacion de texto.
 
 #include "definiciones.h"
+#include "diccionario.h"
 #include <iostream>
 
 using namespace std;
@@ -65,6 +66,10 @@ void BorrarOcurrenciasPalabraEnLinea_texto(texto t, Posicion posicionLinea, Cade
 void ImprimirLinea_texto(texto t, Posicion posicionLinea);
 // Imprime la linea indicada con su numero.
 // Retorna ERROR si la linea no existe.
+
+void ImprimirTextoIncorrecto_texto(texto t, diccionario d);
+// Imprime todas las lineas mostrando solo las palabras que no estan en d.
+// Si no tiene lineas imprime "Texto vacio".
 
 void DestruirTexto(texto t);
 // Libera todas las lineas y la estructura texto.
