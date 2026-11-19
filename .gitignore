@@ -12,3 +12,10 @@ eda-ob/main
 eda-ob/prueba_linea
 .vscode/
 
+.idea/
+main
+
+# configuracion de editores y notas personales
+.zed/
+.clangd
+eda-ob/
